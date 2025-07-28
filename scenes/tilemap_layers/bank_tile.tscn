@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvjk1ijjgvat4"]
+
+[ext_resource type="TileSet" uid="uid://esxar84n75dw" path="res://resources/tilesets/test_tileset_256x.tres" id="1_daslo"]
+
+[node name="Bank_Tile" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 5, 0, 1, 0, 0, 0, 0, 0, 12, 0)
+tile_set = ExtResource("1_daslo")

@@ -1,0 +1,213 @@
+[gd_resource type="Resource" script_class="VotePool" load_steps=34 format=3 uid="uid://dxhqvri530vxo"]
+
+[ext_resource type="Script" uid="uid://diih6olji31sk" path="res://scripts/voting/vote_data.gd" id="1_24qe7"]
+[ext_resource type="Texture2D" uid="uid://c2y2n5nolv85v" path="res://assets/sprites/AV_Businessman.png" id="2_e08uu"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="2_how6g"]
+[ext_resource type="Script" uid="uid://dqrrkn0oo8e56" path="res://scripts/vote_effects/vote_effect.gd" id="2_tq30h"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="3_f6e87"]
+[ext_resource type="Script" uid="uid://bm0n6o67rhllg" path="res://scripts/vote_effects/building_stat_effect.gd" id="4_pwfcd"]
+[ext_resource type="Script" uid="uid://7jmcpal001o7" path="res://scripts/vote_effects/daily_reset_stat_effect.gd" id="5_ew26o"]
+[ext_resource type="Script" uid="uid://7mqjvsob7oih" path="res://scripts/vote_effects/player_stat_effect.gd" id="5_f6e87"]
+[ext_resource type="Texture2D" uid="uid://d1ydk3fs4y85s" path="res://assets/sprites/AV_teacher.png" id="6_vobg8"]
+[ext_resource type="Texture2D" uid="uid://f60mw4oy3wai" path="res://assets/sprites/AV_Manager.png" id="8_vy34a"]
+[ext_resource type="Texture2D" uid="uid://081ura5ltwbk" path="res://assets/sprites/AV_doctor.png" id="10_ndcn0"]
+
+[sub_resource type="Resource" id="Resource_g01dn"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 10
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_l1gm6"]
+script = ExtResource("5_ew26o")
+new_stats = SubResource("Resource_g01dn")
+operation_type = 1
+metadata/_custom_type_script = "uid://7jmcpal001o7"
+
+[sub_resource type="Resource" id="Resource_aq4sp"]
+script = ExtResource("1_24qe7")
+title = "Lower Rent Tax"
+party_id = 0
+portrait = ExtResource("2_e08uu")
+background_color = Color(0.532932, 0.33981, 0.764995, 1)
+description = "Rent prices are going down."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_l1gm6")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_pwfcd"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 50
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_vy34a"]
+script = ExtResource("5_f6e87")
+new_stats = SubResource("Resource_pwfcd")
+stats_to_apply = 2
+operation_type = 1
+metadata/_custom_type_script = "uid://7mqjvsob7oih"
+
+[sub_resource type="Resource" id="Resource_ndcn0"]
+script = ExtResource("1_24qe7")
+title = "Housing subsidy"
+party_id = 0
+portrait = ExtResource("6_vobg8")
+background_color = Color(0.547719, 0.440651, 0.190412, 1)
+description = "Each student receives a housing subsidy worth 50 Money."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_vy34a")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_ew26o"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 10
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_45s4u"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_ew26o")
+building_group = &"cinema"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_ptojm"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 10
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_e08uu"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_ptojm")
+building_group = &"cafe"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_vobg8"]
+script = ExtResource("1_24qe7")
+title = "Increase in wages"
+party_id = 1
+portrait = ExtResource("8_vy34a")
+background_color = Color(0.217713, 0.582407, 0.62876, 1)
+description = "All buildings where you can work offer higher pay rates."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_45s4u"), SubResource("Resource_e08uu")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_f6e87"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 0
+health = 100
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_8g0b3"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_f6e87")
+building_group = &"Hospital"
+operation_type = 0
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_pqgs7"]
+script = ExtResource("1_24qe7")
+title = "Greater investment in the healthcare system"
+party_id = 1
+portrait = ExtResource("10_ndcn0")
+background_color = Color(0.883741, 0.300712, 0.318555, 1)
+description = "Using the hospital is free and fully restores your health."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_8g0b3")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_p7ybg"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 10
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_8vfhh"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_p7ybg")
+building_group = &"university"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_lv88f"]
+script = ExtResource("1_24qe7")
+title = "University scholarships"
+party_id = 1
+portrait = ExtResource("6_vobg8")
+background_color = Color(0.330566, 0.627374, 0.708186, 1)
+description = "Visiting the university not only enhances educational attainment but also offers small financial rewards."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_8vfhh")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_jhari"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 0
+health = 0
+energy = 10
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_60jfb"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_jhari")
+building_group = &"cinema"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_ifmim"]
+script = ExtResource("3_f6e87")
+education_level = 0
+money = 0
+health = 0
+energy = 10
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_hhagb"]
+script = ExtResource("4_pwfcd")
+new_stats = SubResource("Resource_ifmim")
+building_group = &"cafe"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_djmav"]
+script = ExtResource("1_24qe7")
+title = "Reduced working hours"
+party_id = 0
+portrait = ExtResource("8_vy34a")
+background_color = Color(0.563407, 0.353609, 0.668766, 1)
+description = "Workplaces are consuming less energy."
+vote_effects = Array[ExtResource("2_tq30h")]([SubResource("Resource_60jfb"), SubResource("Resource_hhagb")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[resource]
+script = ExtResource("2_how6g")
+options = Array[ExtResource("1_24qe7")]([SubResource("Resource_aq4sp"), SubResource("Resource_ndcn0"), SubResource("Resource_vobg8"), SubResource("Resource_pqgs7"), SubResource("Resource_lv88f"), SubResource("Resource_djmav")])
+choices_count = 2

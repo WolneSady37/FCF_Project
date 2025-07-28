@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://c4vxnw8opqtmo"]
+
+[ext_resource type="TileSet" uid="uid://bbf143aiadq8y" path="res://resources/tilesets/urban_tileset_256x.tres" id="1_eimcu"]
+
+[node name="Univ_GreenCity" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAAFAAQAAAAKAAEAAAAEAAQAAAAIAAEAAAADAAQAAAAFAAAAAAACAAQAAAAFAAAAAAABAAQAAAAFAAAAAAAEAAUAAAAGAAEAAAAAAAQAAAAEAAAAAAA=")
+tile_set = ExtResource("1_eimcu")

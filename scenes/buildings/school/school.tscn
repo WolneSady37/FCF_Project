@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://rj4rkqnlgilr"]
+
+[ext_resource type="Script" uid="uid://cq1680wedvw4p" path="res://scenes/buildings/school/school.gd" id="1_mrj4t"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="2_txbh5"]
+[ext_resource type="Texture2D" uid="uid://ca1dgak5752f" path="res://assets/tilesheets/FCF_City_tilesheet_256px.png" id="3_n2jpb"]
+
+[sub_resource type="Resource" id="Resource_fm2sg"]
+script = ExtResource("2_txbh5")
+education_level = 0
+money = 0
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geeut"]
+size = Vector2(48, 48)
+
+[node name="School" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_mrj4t")
+building_stats = SubResource("Resource_fm2sg")
+should_end_day = true
+should_start_vote = true
+fully_reset_stats = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_n2jpb")
+region_enabled = true
+region_rect = Rect2(895.797, 2048.26, 255.447, 257.451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_geeut")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -54.0
+offset_right = 28.0
+offset_bottom = -30.0
+text = "VOTE!"
+horizontal_alignment = 1

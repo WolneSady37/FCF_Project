@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3nywl2ngam35"]
+
+[ext_resource type="Script" uid="uid://ckui5cb8cusr1" path="res://scenes/autoloads/sound_handler.gd" id="1_mwf8u"]
+
+[node name="SoundHandler" type="Node"]
+process_mode = 3
+script = ExtResource("1_mwf8u")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="Sounds" type="Node" parent="."]

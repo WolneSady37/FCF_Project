@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://c61ohgy6od54v"]
+
+[ext_resource type="TileSet" uid="uid://esxar84n75dw" path="res://resources/tilesets/test_tileset_256x.tres" id="1_upx5u"]
+
+[node name="SchoolExtraTrees" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAACAAAAAwAGAAIAAAADAAEAAwAHAAIAAAAEAAAAAwAFAAEAAAAGAAgAAwAKAAIAAAAFAAgAAwAHAAEAAAABAAUAAwAJAAEAAAACAAUAAwAKAAAAAAACAAYAAwAJAAEAAAAEAAIAAwAGAAIAAAAEAAMAAwAFAAEAAAAGAAQAAwAKAAEAAAAGAAMAAwAJAAAAAAAHAAMAAwAKAAEAAAAHAAIAAwAJAAIAAAAFAAQAAwAJAAAAAAAFAAUAAwAGAAEAAAAFAAYAAwAGAAAAAAAFAAcAAwAGAAEAAAA=")
+tile_set = ExtResource("1_upx5u")

@@ -1,0 +1,131 @@
+[gd_scene load_steps=20 format=4 uid="uid://bf7vuqjn803fa"]
+
+[ext_resource type="Script" uid="uid://utyw7ex04ogi" path="res://scripts/map/game_map.gd" id="1_ayxiq"]
+[ext_resource type="AudioStream" uid="uid://bb6mmfqdt362y" path="res://assets/audio/music/that-game-arcade-medium-236110.ogg" id="2_ofi8b"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="3_ofi8b"]
+[ext_resource type="Resource" uid="uid://bvjb5o8cgsvk5" path="res://resources/vote_pools/regional_vote_pool.tres" id="4_3lhck"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="4_ofi8b"]
+[ext_resource type="Resource" uid="uid://dxhqvri530vxo" path="res://resources/vote_pools/parliament_vote_pool.tres" id="5_676dj"]
+[ext_resource type="Script" uid="uid://dx6pswvful3n3" path="res://scripts/map/gameplay_tile_map.gd" id="6_676dj"]
+[ext_resource type="Resource" uid="uid://crpli1tibywow" path="res://resources/tutorials/uni_tutorial.tres" id="7_3lhck"]
+[ext_resource type="TileSet" uid="uid://esxar84n75dw" path="res://resources/tilesets/test_tileset_256x.tres" id="7_ayxiq"]
+[ext_resource type="Script" uid="uid://balwyylpuqusa" path="res://scripts/bandit/bandit_manager.gd" id="7_wqgn7"]
+[ext_resource type="PackedScene" uid="uid://cocy0areo8hpq" path="res://scenes/player/player.tscn" id="8_cgk6y"]
+[ext_resource type="PackedScene" uid="uid://dgjlfxte8jfow" path="res://scenes/bandit/bandit.tscn" id="9_d77uh"]
+[ext_resource type="AudioStream" uid="uid://lo7v1nao7kv2" path="res://assets/audio/sfx/SFX_PlayerMoveSound.ogg" id="11_676dj"]
+[ext_resource type="AudioStream" uid="uid://pg4owgennlqc" path="res://assets/audio/sfx/SFX_Bandit.ogg" id="12_f31du"]
+
+[sub_resource type="Resource" id="Resource_xolah"]
+script = ExtResource("4_ofi8b")
+education_level = 0
+money = -20
+health = 0
+energy = 250
+bonus_health = 0
+bonus_energy = 50
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_676dj"]
+script = ExtResource("4_ofi8b")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_f31du"]
+script = ExtResource("4_ofi8b")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_cgk6y"]
+script = ExtResource("4_ofi8b")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_d77uh"]
+script = ExtResource("4_ofi8b")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[node name="University" type="Node2D"]
+script = ExtResource("1_ayxiq")
+map_id = 1
+map_music = ExtResource("2_ofi8b")
+vote_schedule = Dictionary[int, ExtResource("3_ofi8b")]({
+7: ExtResource("5_676dj"),
+9: ExtResource("4_3lhck"),
+12: ExtResource("5_676dj"),
+15: ExtResource("4_3lhck"),
+18: ExtResource("5_676dj"),
+20: ExtResource("4_3lhck")
+})
+tutorial_data = ExtResource("7_3lhck")
+stats_daily_reset = SubResource("Resource_xolah")
+starting_energy = 150
+money_multiplier = 2.0
+final_day = 25
+
+[node name="GameplayTileMap" type="Node2D" parent="." node_paths=PackedStringArray("_tilemap", "_player")]
+script = ExtResource("6_676dj")
+movement_duration = 0.2
+house_tile_position = Vector2i(1, 10)
+destination_tile_coords_list = Array[Vector2i]([Vector2i(6, 0), Vector2i(1, 6)])
+_tilemap = NodePath("Paths")
+_player = NodePath("../Player")
+
+[node name="Paths" type="TileMapLayer" parent="GameplayTileMap"]
+tile_map_data = PackedByteArray("AAAAAAAAAwADAAQAAAAAAAEAAwAEAAIAAAAAAAIAAwAAAAQAAAAAAAMAAgAEAAQAAAAAAAQAAwADAAEAAAAAAAUAAwAGAAAAAAAAAAYAAwAGAAEAAAAAAAcAAwAJAAEAAAAAAAgAAwAFAAUAAAAAAAkAAwACAAQAAAAAAAoAAwABAAQAAAABAAAAAwAGAAIAAAABAAEAAwADAAEAAAABAAIAAwADAAAAAAABAAMAAwADAAAAAAABAAQAAwABAAIAAAABAAUAAwADAAQAAAABAAYAAwAFAAMAAAABAAcAAwACAAAAAAABAAgAAwAEAAMAAAABAAkAAwAJAAEAAAABAAoAAAAAAAAAAAACAAAAAwAEAAIAAAACAAEAAwABAAAAAAACAAIAAwAFAAQAAAACAAQAAwABAAAAAAACAAUAAwACAAQAAAACAAYAAwABAAQAAAACAAcAAwABAAAAAAACAAgAAwADAAQAAAACAAkAAwAKAAAAAAACAAoAAwAJAAEAAAADAAAAAwAEAAQAAAADAAIAAwAAAAMAAAADAAMAAwADAAAAAAADAAQAAwACAAAAAAADAAUAAwADAAAAAAADAAYAAwADAAIAAAADAAgAAgABAAQAAAADAAkAAgADAAQAAAADAAoAAwADAAMAAAAEAAAAAwAFAAUAAAAEAAEAAgAEAAUAAAAEAAIAAwABAAAAAAAEAAMAAwAFAAUAAAAEAAQAAwABAAAAAAAEAAUAAwAEAAIAAAAEAAcAAwABAAMAAAAEAAgAAwAFAAMAAAAEAAkAAwADAAAAAAAFAAEAAwADAAEAAAAFAAIAAwACAAIAAAAFAAMAAgAEAAUAAAAFAAQAAwACAAMAAAAFAAUAAgAEAAUAAAAFAAYAAwABAAAAAAAFAAcAAwAFAAQAAAAFAAgAAwACAAQAAAAFAAkAAwABAAQAAAAFAAoAAwAKAAMAAAAGAAAAAwAEAAIAAAAGAAEAAwACAAMAAAAGAAIAAwAAAAQAAAAGAAMAAwAEAAIAAAAGAAQAAwACAAQAAAAGAAUAAwABAAQAAAAGAAYAAwACAAEAAAAGAAcAAwAJAAIAAAAGAAgAAwAGAAEAAAAGAAkAAwAGAAAAAAAGAAoAAwAKAAEAAAAFAAAAAwAEAAIAAAADAAEAAwACAAEAAAACAAMAAwAEAAIAAAAEAAYAAwAAAAIAAAAEAAoAAwABAAIAAAADAAcAAwABAAAAAAA=")
+tile_set = ExtResource("7_ayxiq")
+
+[node name="Buildings_School" type="TileMapLayer" parent="GameplayTileMap"]
+tile_map_data = PackedByteArray("AAAFAAMAAQAAAAAABwA=")
+tile_set = ExtResource("7_ayxiq")
+
+[node name="Buildings_UniversityMap" type="TileMapLayer" parent="GameplayTileMap"]
+tile_map_data = PackedByteArray("AAABAAoAAQAAAAAAAwAAAAMAAQAAAAAABQAAAAEAAQAAAAAAAgAEAAEAAQAAAAAACwAFAAUAAQAAAAAACAA=")
+tile_set = ExtResource("7_ayxiq")
+
+[node name="Player" parent="." instance=ExtResource("8_cgk6y")]
+position = Vector2(384, 2688)
+money = 50
+move_sound = ExtResource("11_676dj")
+bandit_collision_sound = ExtResource("12_f31du")
+
+[node name="Bandits" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
+script = ExtResource("7_wqgn7")
+tilemap = NodePath("../GameplayTileMap")
+metadata/_edit_lock_ = true
+
+[node name="Bandit" parent="Bandits" instance=ExtResource("9_d77uh")]
+position = Vector2(1152, 1152)
+bandit_stats = SubResource("Resource_676dj")
+
+[node name="Bandit2" parent="Bandits" instance=ExtResource("9_d77uh")]
+position = Vector2(384, 640)
+bandit_stats = SubResource("Resource_f31du")
+
+[node name="Bandit3" parent="Bandits" instance=ExtResource("9_d77uh")]
+position = Vector2(640, 1920)
+bandit_stats = SubResource("Resource_cgk6y")
+
+[node name="Bandit4" parent="Bandits" instance=ExtResource("9_d77uh")]
+position = Vector2(1152, 2176)
+bandit_stats = SubResource("Resource_d77uh")

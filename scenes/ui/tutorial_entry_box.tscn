@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj0kr8q0sxtfq"]
+
+[ext_resource type="Script" uid="uid://btf5b1u8p47hr" path="res://scripts/ui/tutorial_entry_box.gd" id="1_jkylc"]
+[ext_resource type="Texture2D" uid="uid://bcd6c0ay06fat" path="res://icon.svg" id="2_q8s5e"]
+
+[node name="TutorialEntryBox" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jkylc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_q8s5e")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Tutorial text goes here"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

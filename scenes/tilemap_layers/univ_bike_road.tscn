@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cen1u8fxwqodn"]
+
+[ext_resource type="TileSet" uid="uid://bbf143aiadq8y" path="res://resources/tilesets/urban_tileset_256x.tres" id="1_52nsb"]
+
+[node name="Univ_BikeRoad" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 2, 0, 9, 0, 0, 0, 17, 0, 0, 0, 0, 0, 1, 0, 9, 0, 0, 0, 16, 0, 1, 0, 0, 0, 2, 0, 10, 0, 0, 0, 16, 0, 1, 0, 0, 0, 1, 0, 8, 0, 0, 0, 13, 0, 1, 0, 0, 0, 1, 0, 7, 0, 0, 0, 17, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_52nsb")

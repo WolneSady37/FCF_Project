@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbfm1i4nki6sq"]
+
+[ext_resource type="TileSet" uid="uid://bbf143aiadq8y" path="res://resources/tilesets/urban_tileset_256x.tres" id="1_bfg53"]
+
+[node name="SchoolTrees" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 4, 0, 7, 0, 0, 0, 6, 0, 1, 0, 0, 0, 3, 0, 8, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 9, 0, 2, 0, 0, 0, 4, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 8, 0, 0, 0, 7, 0, 1, 0, 0, 0)
+tile_set = ExtResource("1_bfg53")

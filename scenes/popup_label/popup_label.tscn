@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://1rk7r8gthct4"]
+
+[ext_resource type="FontFile" uid="uid://c6jxpm6ufrllc" path="res://assets/fonts/OpenSans-Bold.ttf" id="1_0xmj8"]
+[ext_resource type="Script" uid="uid://bhr4f04enj8dh" path="res://scenes/popup_label/popup_label.gd" id="1_n7yy6"]
+
+[node name="PopupLabel" type="RichTextLabel"]
+top_level = true
+custom_minimum_size = Vector2(240, 40)
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 48.0
+theme_override_fonts/normal_font = ExtResource("1_0xmj8")
+theme_override_fonts/italics_font = ExtResource("1_0xmj8")
+theme_override_fonts/bold_italics_font = ExtResource("1_0xmj8")
+theme_override_fonts/bold_font = ExtResource("1_0xmj8")
+theme_override_font_sizes/bold_italics_font_size = 42
+theme_override_font_sizes/italics_font_size = 42
+theme_override_font_sizes/mono_font_size = 42
+theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("1_n7yy6")

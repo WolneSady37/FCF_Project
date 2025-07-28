@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgjjc8ty1dx5w"]
+
+[ext_resource type="Script" uid="uid://bn504riaatasb" path="res://scripts/map/building.gd" id="1_lnwiy"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="2_8q6fk"]
+[ext_resource type="Texture2D" uid="uid://ca1dgak5752f" path="res://assets/tilesheets/FCF_City_tilesheet_256px.png" id="3_psgk5"]
+
+[sub_resource type="Resource" id="Resource_62upw"]
+script = ExtResource("2_8q6fk")
+education_level = 1
+money = 0
+health = 0
+energy = -50
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geeut"]
+size = Vector2(48, 48)
+
+[node name="University" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_lnwiy")
+building_stats = SubResource("Resource_62upw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_psgk5")
+region_enabled = true
+region_rect = Rect2(895.386, 2428.51, 256.706, 256.706)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_geeut")

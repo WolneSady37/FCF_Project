@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="VoteData" load_steps=14 format=3 uid="uid://1a8if1nlthsa"]
+
+[ext_resource type="Texture2D" uid="uid://bcd6c0ay06fat" path="res://icon.svg" id="1_7m3t8"]
+[ext_resource type="Script" uid="uid://diih6olji31sk" path="res://scripts/voting/vote_data.gd" id="2_ypyxb"]
+[ext_resource type="Script" uid="uid://dqrrkn0oo8e56" path="res://scripts/vote_effects/vote_effect.gd" id="3_d07gm"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="4_d07gm"]
+[ext_resource type="Script" uid="uid://bm0n6o67rhllg" path="res://scripts/vote_effects/building_stat_effect.gd" id="5_wsmy3"]
+[ext_resource type="Script" uid="uid://gwq12730pyai" path="res://scripts/vote_effects/add_tilemap_layer.gd" id="6_8skh5"]
+[ext_resource type="PackedScene" uid="uid://bvjk1ijjgvat4" path="res://scenes/tilemap_layers/bank_tile.tscn" id="7_yqr18"]
+[ext_resource type="Script" uid="uid://dcdfq0pnbr1v6" path="res://scripts/vote_effects/tutorial_effect.gd" id="8_8q1bp"]
+[ext_resource type="Resource" uid="uid://b2ehu00c01xt" path="res://resources/tutorials/bank_tutorial.tres" id="9_u3nle"]
+
+[sub_resource type="Resource" id="Resource_8skh5"]
+script = ExtResource("4_d07gm")
+education_level = 0
+money = 15
+health = 0
+energy = -50
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_yqr18"]
+script = ExtResource("5_wsmy3")
+new_stats = SubResource("Resource_8skh5")
+building_group = &"university"
+operation_type = 0
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_8q1bp"]
+script = ExtResource("6_8skh5")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("7_yqr18"), ExtResource("7_yqr18")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_7xt1w"]
+script = ExtResource("8_8q1bp")
+tutorial = ExtResource("9_u3nle")
+metadata/_custom_type_script = "uid://dcdfq0pnbr1v6"
+
+[resource]
+script = ExtResource("2_ypyxb")
+title = ""
+party_id = 0
+portrait = ExtResource("1_7m3t8")
+background_color = Color(0.254902, 0.411765, 0.882353, 1)
+description = ""
+vote_effects = Array[ExtResource("3_d07gm")]([SubResource("Resource_yqr18"), SubResource("Resource_8q1bp"), SubResource("Resource_7xt1w")])
+metadata/_custom_type_script = "uid://diih6olji31sk"

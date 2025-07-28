@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="VotePool" load_steps=27 format=3 uid="uid://bvjb5o8cgsvk5"]
+
+[ext_resource type="Script" uid="uid://diih6olji31sk" path="res://scripts/voting/vote_data.gd" id="1_q2jdp"]
+[ext_resource type="Texture2D" uid="uid://sgpsjkr7cu3w" path="res://assets/sprites/AV_policeman.png" id="2_ejxo8"]
+[ext_resource type="Script" uid="uid://dqrrkn0oo8e56" path="res://scripts/vote_effects/vote_effect.gd" id="2_exgx8"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="2_qlg6c"]
+[ext_resource type="Script" uid="uid://gwq12730pyai" path="res://scripts/vote_effects/add_tilemap_layer.gd" id="3_8en2s"]
+[ext_resource type="Texture2D" uid="uid://b2roaeh0wyvab" path="res://assets/sprites/AV_Mediaman.png" id="5_nq78m"]
+[ext_resource type="Script" uid="uid://b321egxfo2dwy" path="res://scripts/vote_effects/remove_bandits_effect.gd" id="6_80yl8"]
+[ext_resource type="PackedScene" uid="uid://d0o4ovy76wp41" path="res://scenes/tilemap_layers/school_cinema.tscn" id="6_pcn21"]
+[ext_resource type="PackedScene" uid="uid://cen1u8fxwqodn" path="res://scenes/tilemap_layers/univ_bike_road.tscn" id="7_qm8t3"]
+[ext_resource type="Texture2D" uid="uid://cssbvugbtd0t7" path="res://assets/sprites/AV_cyclist.png" id="8_5kmn6"]
+[ext_resource type="PackedScene" uid="uid://c4vxnw8opqtmo" path="res://scenes/tilemap_layers/univ_green_city.tscn" id="8_sa6xr"]
+[ext_resource type="PackedScene" uid="uid://chgq8x6sxgmif" path="res://scenes/tilemap_layers/uni_busstops.tscn" id="9_ejxo8"]
+[ext_resource type="Texture2D" uid="uid://dsg8f07f3ch40" path="res://assets/sprites/AV_earthwoman.png" id="10_18ies"]
+[ext_resource type="Texture2D" uid="uid://ywy7867v0rt4" path="res://assets/sprites/AV_Metroman.png" id="12_ejxo8"]
+
+[sub_resource type="Resource" id="Resource_80yl8"]
+script = ExtResource("6_80yl8")
+bandits_to_remove = 2
+metadata/_custom_type_script = "uid://b321egxfo2dwy"
+
+[sub_resource type="Resource" id="Resource_qm8t3"]
+script = ExtResource("1_q2jdp")
+title = "Increased Police Patrols"
+party_id = 0
+portrait = ExtResource("2_ejxo8")
+background_color = Color(0.318213, 0.439889, 0.748989, 1)
+description = "Two bandits disappear from the map."
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_80yl8")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_82a74"]
+script = ExtResource("3_8en2s")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("6_pcn21"), ExtResource("6_pcn21")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_k2ie7"]
+script = ExtResource("1_q2jdp")
+title = "Cinema Construction"
+party_id = 0
+portrait = ExtResource("5_nq78m")
+background_color = Color(0, 0.587487, 0.518324, 1)
+description = "A new workplace appears. The Cinema."
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_82a74")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_pcn21"]
+script = ExtResource("6_80yl8")
+bandits_to_remove = 2
+metadata/_custom_type_script = "uid://b321egxfo2dwy"
+
+[sub_resource type="Resource" id="Resource_1w2vu"]
+script = ExtResource("1_q2jdp")
+title = "Increased Police Patrols patrole policji"
+party_id = 0
+portrait = ExtResource("2_ejxo8")
+background_color = Color(0.185231, 0.447363, 0.81587, 1)
+description = "Two bandits disappear from the city."
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_pcn21")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_0y8xp"]
+script = ExtResource("3_8en2s")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("7_qm8t3"), ExtResource("7_qm8t3")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_cj62f"]
+script = ExtResource("1_q2jdp")
+title = "Construction of a bike path"
+party_id = 1
+portrait = ExtResource("8_5kmn6")
+background_color = Color(0.785049, 0.258358, 0.46554, 1)
+description = "A bike path appears in the city. Traveling on it costs little energy and boosts your health!"
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_0y8xp")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_fwus4"]
+script = ExtResource("3_8en2s")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("8_sa6xr"), ExtResource("8_sa6xr")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_obu34"]
+script = ExtResource("1_q2jdp")
+title = "Urban greening project"
+party_id = 1
+portrait = ExtResource("10_18ies")
+background_color = Color(0.336989, 0.661986, 0.407319, 1)
+description = "New, tree-lined pathways are being added throughout the city."
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_fwus4")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_sa6xr"]
+script = ExtResource("3_8en2s")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("9_ejxo8"), ExtResource("9_ejxo8")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_ejxo8"]
+script = ExtResource("1_q2jdp")
+title = "New Metro Line"
+party_id = 1
+portrait = ExtResource("12_ejxo8")
+background_color = Color(0.942436, 0.685865, 3.85046e-06, 1)
+description = "You can now fast travel using metro stations."
+vote_effects = Array[ExtResource("2_exgx8")]([SubResource("Resource_sa6xr")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[resource]
+script = ExtResource("2_qlg6c")
+options = Array[ExtResource("1_q2jdp")]([SubResource("Resource_qm8t3"), SubResource("Resource_k2ie7"), SubResource("Resource_1w2vu"), SubResource("Resource_cj62f"), SubResource("Resource_obu34"), SubResource("Resource_ejxo8")])
+choices_count = 2

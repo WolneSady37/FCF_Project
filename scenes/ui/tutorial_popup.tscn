@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5v43yjyk6hgl"]
+
+[ext_resource type="Script" uid="uid://bdmnkp6uvbvvb" path="res://scripts/ui/tutorial_popup.gd" id="1_g8hy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8hy4"]
+bg_color = Color(0.101563, 0.101563, 0.101563, 0.847059)
+
+[node name="TutorialPopup" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_g8hy4")
+script = ExtResource("1_g8hy4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<---"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 36
+text = "TUTORIAL TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "X"
+
+[node name="TutorialEntryContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="NextButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "NEXT"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TutorialData" load_steps=5 format=3 uid="uid://b2ehu00c01xt"]
+
+[ext_resource type="Script" uid="uid://dk1ebxanvp5im" path="res://scripts/resources/tutorial_data.gd" id="1_sxgex"]
+[ext_resource type="Script" uid="uid://cm04f1h80r0ws" path="res://scripts/resources/tutorial_entry.gd" id="2_ragn0"]
+[ext_resource type="Texture2D" uid="uid://cwd07l0nvr7g" path="res://assets/sprites/genericItem_color_158.png" id="3_ragn0"]
+
+[sub_resource type="Resource" id="Resource_sxgex"]
+script = ExtResource("2_ragn0")
+tutorial_text = "There is a new building on the map - bank. In order to win the game, you need to go there and pay enough money to buy a flat, before you run out of time. "
+tutorial_image = ExtResource("3_ragn0")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[resource]
+script = ExtResource("1_sxgex")
+tutorial_title = "You are now educated!"
+tutorial_entries = Array[ExtResource("2_ragn0")]([SubResource("Resource_sxgex")])
+metadata/_custom_type_script = "uid://dk1ebxanvp5im"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatComponent" load_steps=2 format=3 uid="uid://b6jjscpoxf0wy"]
+
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="1_jnvii"]
+
+[resource]
+script = ExtResource("1_jnvii")
+education_level = 0
+money = -10
+health = 0
+energy = -30
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"

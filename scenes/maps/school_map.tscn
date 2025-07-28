@@ -1,0 +1,104 @@
+[gd_scene load_steps=17 format=4 uid="uid://bxpq1gmwobqgi"]
+
+[ext_resource type="Script" uid="uid://utyw7ex04ogi" path="res://scripts/map/game_map.gd" id="1_gjvty"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="2_52oyw"]
+[ext_resource type="AudioStream" uid="uid://bb6mmfqdt362y" path="res://assets/audio/music/that-game-arcade-medium-236110.ogg" id="2_mnhgw"]
+[ext_resource type="Resource" uid="uid://s0mw3mrr0y6b" path="res://resources/vote_pools/school_vote_pool.tres" id="3_lcjqk"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="5_d7ogs"]
+[ext_resource type="Resource" uid="uid://chnxnam26r6sn" path="res://resources/tutorials/school_tutorial.tres" id="5_tv5jk"]
+[ext_resource type="PackedScene" uid="uid://bf7vuqjn803fa" path="res://scenes/maps/university_map.tscn" id="6_lc1ce"]
+[ext_resource type="Script" uid="uid://dx6pswvful3n3" path="res://scripts/map/gameplay_tile_map.gd" id="7_d023u"]
+[ext_resource type="TileSet" uid="uid://esxar84n75dw" path="res://resources/tilesets/test_tileset_256x.tres" id="8_gjvty"]
+[ext_resource type="PackedScene" uid="uid://cocy0areo8hpq" path="res://scenes/player/player.tscn" id="9_jugba"]
+[ext_resource type="PackedScene" uid="uid://dgjlfxte8jfow" path="res://scenes/bandit/bandit.tscn" id="10_1vmyw"]
+[ext_resource type="Script" uid="uid://balwyylpuqusa" path="res://scripts/bandit/bandit_manager.gd" id="11_tv5jk"]
+
+[sub_resource type="Resource" id="Resource_dcgef"]
+script = ExtResource("5_d7ogs")
+education_level = 0
+money = 5
+health = 0
+energy = 150
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_tv5jk"]
+script = ExtResource("5_d7ogs")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_1siv1"]
+script = ExtResource("5_d7ogs")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_uus46"]
+script = ExtResource("5_d7ogs")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[node name="SchoolMap" type="Node2D"]
+script = ExtResource("1_gjvty")
+map_id = 0
+map_music = ExtResource("2_mnhgw")
+vote_schedule = Dictionary[int, ExtResource("2_52oyw")]({
+2: ExtResource("3_lcjqk"),
+3: ExtResource("3_lcjqk"),
+4: ExtResource("3_lcjqk")
+})
+tutorial_data = ExtResource("5_tv5jk")
+stats_daily_reset = SubResource("Resource_dcgef")
+final_day = 5
+can_lose = false
+next_map = ExtResource("6_lc1ce")
+
+[node name="GameplayTileMap" type="Node2D" parent="." node_paths=PackedStringArray("_tilemap", "_player")]
+script = ExtResource("7_d023u")
+movement_duration = 0.2
+house_tile_position = Vector2i(1, 8)
+_tilemap = NodePath("Paths")
+_player = NodePath("../Player")
+
+[node name="Paths" type="TileMapLayer" parent="GameplayTileMap"]
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAQAAAABAAAAAwAFAAMAAAACAAAAAwAFAAUAAAADAAAAAwAFAAQAAAAEAAAAAwADAAEAAAAFAAAAAwACAAMAAAAGAAAAAwACAAQAAAAAAAEAAwABAAQAAAAAAAIAAwADAAEAAAAAAAQAAwAGAAAAAAAAAAUAAwAJAAEAAAAAAAYAAwACAAQAAAAAAAcAAwABAAQAAAABAAgAAAAAAAAAAAADAAgAAwADAAMAAAAEAAgAAwABAAIAAAAFAAgAAwACAAMAAAAGAAgAAwAKAAEAAAAGAAcAAwAGAAAAAAAGAAYAAwAGAAEAAAAGAAUAAwAJAAIAAAAGAAQAAwACAAEAAAAGAAMAAwAAAAQAAAAFAAMAAAAAAAAAAAAFAAIAAwACAAMAAAAFAAEAAAAAAAAAAAAGAAEAAwABAAQAAAAGAAIAAwAEAAQAAAAFAAUAAwAHAAIAAAAFAAYAAwACAAQAAAAFAAcAAwABAAQAAAAEAAcAAwADAAAAAAADAAcAAwAAAAQAAAABAAcAAwAJAAEAAAADAAYAAwAFAAQAAAAEAAYAAwADAAAAAAACAAYAAwAEAAQAAAABAAUAAwACAAAAAAADAAUAAwABAAIAAAAEAAUAAwABAAMAAAAFAAQAAwABAAAAAAAEAAQAAwAAAAMAAAADAAQAAwAFAAMAAAACAAQAAwABAAQAAAABAAQAAwAFAAMAAAAEAAMAAwADAAAAAAADAAMAAAAAAAAAAAADAAIAAwABAAAAAAACAAIAAwABAAAAAAACAAMAAwACAAQAAAABAAMAAwADAAQAAAAEAAIAAwACAAAAAAADAAEAAwAEAAIAAAACAAEAAwAEAAIAAAABAAEAAwADAAAAAAAEAAEAAwADAAAAAAACAAcAAwAKAAAAAAABAAYAAwADAAAAAAACAAUAAwABAAAAAAABAAIAAwABAAIAAAAAAAgAAwAFAAQAAAACAAgAAwAJAAEAAAAAAAMAAwAJAAIAAAA=")
+tile_set = ExtResource("8_gjvty")
+
+[node name="Buildings" type="TileMapLayer" parent="GameplayTileMap"]
+tile_map_data = PackedByteArray("AAAFAAMAAQAAAAAACAADAAMAAQAAAAAABAABAAgAAQAAAAAAAwAFAAEAAQAAAAAABwA=")
+tile_set = ExtResource("8_gjvty")
+
+[node name="Bandits" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
+script = ExtResource("11_tv5jk")
+tilemap = NodePath("../GameplayTileMap")
+metadata/_edit_lock_ = true
+
+[node name="Bandit" parent="Bandits" instance=ExtResource("10_1vmyw")]
+position = Vector2(1152, 1152)
+bandit_stats = SubResource("Resource_tv5jk")
+
+[node name="Bandit2" parent="Bandits" instance=ExtResource("10_1vmyw")]
+position = Vector2(1664, 1152)
+bandit_stats = SubResource("Resource_1siv1")
+
+[node name="Bandit3" parent="Bandits" instance=ExtResource("10_1vmyw")]
+position = Vector2(896, 640)
+bandit_stats = SubResource("Resource_uus46")
+
+[node name="Player" parent="." instance=ExtResource("9_jugba")]
+position = Vector2(384, 2176)

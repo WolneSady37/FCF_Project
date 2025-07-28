@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://tnf8h4sob06m"]
+
+[ext_resource type="Script" uid="uid://nkq6vg4m3ix6" path="res://scenes/buildings/bank/bank.gd" id="1_kfocc"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="2_lqjni"]
+[ext_resource type="Texture2D" uid="uid://ca1dgak5752f" path="res://assets/tilesheets/FCF_City_tilesheet_256px.png" id="3_i2uam"]
+
+[sub_resource type="Resource" id="Resource_rd4rv"]
+script = ExtResource("2_lqjni")
+education_level = 0
+money = -500
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geeut"]
+size = Vector2(48, 48)
+
+[node name="Bank" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_kfocc")
+building_stats = SubResource("Resource_rd4rv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.253906, 0.253906)
+texture = ExtResource("3_i2uam")
+region_enabled = true
+region_rect = Rect2(1663.23, 2430.22, 256.198, 253.995)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_geeut")

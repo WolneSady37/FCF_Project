@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgjlfxte8jfow"]
+
+[ext_resource type="Script" uid="uid://c6xdlynqnneo5" path="res://scenes/bandit/bandit.gd" id="1_8jfgm"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="2_73osf"]
+[ext_resource type="Texture2D" uid="uid://4agc11tx7s62" path="res://assets/sprites/BanditAvatar.png" id="3_ej8bi"]
+[ext_resource type="Script" uid="uid://csulacdrfw7a" path="res://scripts/bandit/movement_state_machine.gd" id="4_7dph8"]
+[ext_resource type="Script" uid="uid://cd5ecldvuk1uj" path="res://scripts/bandit/idle_state.gd" id="5_ej8bi"]
+[ext_resource type="Script" uid="uid://c8k6he55875qy" path="res://scripts/bandit/before_move_state.gd" id="6_ej8bi"]
+[ext_resource type="Script" uid="uid://h75wi4yi03jt" path="res://scripts/bandit/moving_state.gd" id="7_ej8bi"]
+
+[sub_resource type="Resource" id="Resource_ej8bi"]
+script = ExtResource("2_73osf")
+education_level = 0
+money = -10
+health = -30
+energy = -20
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej8bi"]
+
+[node name="Bandit" type="Area2D" groups=["bandits"]]
+script = ExtResource("1_8jfgm")
+bandit_sprite = ExtResource("3_ej8bi")
+bandit_stats = SubResource("Resource_ej8bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ej8bi")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ej8bi")
+
+[node name="MovementStateMachine" type="Node" parent="."]
+script = ExtResource("4_7dph8")
+target_node = NodePath("..")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://cik4yxu00it7y"
+
+[node name="Idle" type="Node" parent="MovementStateMachine"]
+script = ExtResource("5_ej8bi")
+metadata/_custom_type_script = "uid://bq7tnnjjks3vf"
+
+[node name="BeforeMove" type="Node" parent="MovementStateMachine"]
+script = ExtResource("6_ej8bi")
+metadata/_custom_type_script = "uid://bq7tnnjjks3vf"
+
+[node name="Moving" type="Node" parent="MovementStateMachine"]
+script = ExtResource("7_ej8bi")
+metadata/_custom_type_script = "uid://bq7tnnjjks3vf"

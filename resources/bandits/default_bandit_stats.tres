@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatComponent" load_steps=2 format=3 uid="uid://pptddp22jgt8"]
+
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="1_x60px"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_x60px")
+level = 0
+money = -10
+health = -10
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"

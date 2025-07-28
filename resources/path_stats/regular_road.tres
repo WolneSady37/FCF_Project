@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatComponent" load_steps=2 format=3 uid="uid://dinkrkyumqeqk"]
+
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="1_nugja"]
+
+[resource]
+script = ExtResource("1_nugja")
+level = 0
+money = 0
+health = 0
+energy = -10
+max_health = 0
+max_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"

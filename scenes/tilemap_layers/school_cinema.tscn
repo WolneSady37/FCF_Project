@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0o4ovy76wp41"]
+
+[ext_resource type="TileSet" uid="uid://esxar84n75dw" path="res://resources/tilesets/test_tileset_256x.tres" id="1_jjv7b"]
+
+[node name="SchoolCinema" type="TileMapLayer"]
+tile_map_data = PackedByteArray(0, 0, 6, 0, 6, 0, 1, 0, 0, 0, 0, 0, 9, 0)
+tile_set = ExtResource("1_jjv7b")

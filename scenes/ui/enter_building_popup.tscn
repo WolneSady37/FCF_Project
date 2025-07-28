@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://oq7rscnijpvy"]
+
+[ext_resource type="Script" uid="uid://dw0yf51v0okla" path="res://scripts/ui/enter_building_popup.gd" id="1_wnqxm"]
+
+[node name="EnterBuildingPopup" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnqxm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Enter %s?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="YesButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "No"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/YesButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/NoButton" to="." method="_on_button_pressed"]

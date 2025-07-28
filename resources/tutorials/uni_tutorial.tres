@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="TutorialData" load_steps=12 format=3 uid="uid://crpli1tibywow"]
+
+[ext_resource type="Script" uid="uid://dk1ebxanvp5im" path="res://scripts/resources/tutorial_data.gd" id="1_yhhq2"]
+[ext_resource type="Script" uid="uid://cm04f1h80r0ws" path="res://scripts/resources/tutorial_entry.gd" id="2_02s5a"]
+[ext_resource type="Texture2D" uid="uid://o6jm6y72jynn" path="res://assets/sprites/Win_158.png" id="3_cbadw"]
+[ext_resource type="Texture2D" uid="uid://d240o3y6uwr61" path="res://assets/sprites/T_Icon_Uni.png" id="5_xloom"]
+[ext_resource type="Texture2D" uid="uid://cwd07l0nvr7g" path="res://assets/sprites/genericItem_color_158.png" id="6_ndywj"]
+[ext_resource type="Texture2D" uid="uid://pufoimwrmkv6" path="res://assets/sprites/T_Icon_School.png" id="6_yhhq2"]
+
+[sub_resource type="Resource" id="Resource_4p6lx"]
+script = ExtResource("2_02s5a")
+tutorial_text = "Congratulations on finishing the tutorial - now the real deal starts.
+
+You have moved beyond school, and now you start adult life."
+tutorial_image = ExtResource("3_cbadw")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_anbbe"]
+script = ExtResource("2_02s5a")
+tutorial_text = "You won't receive any more free Money - you need to earn it at a workplace. 
+
+Tap buildings on the map to see which one will allow you to get some funds. "
+tutorial_image = ExtResource("6_ndywj")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_sovy8"]
+script = ExtResource("2_02s5a")
+tutorial_text = "Every Day, you will have to pay Rent in order to be able to live at your home. 
+
+If you're unable to pay Rent at the end of the Day, you will lose the game. "
+tutorial_image = ExtResource("6_ndywj")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_tdprx"]
+script = ExtResource("2_02s5a")
+tutorial_text = "This is University. 
+
+You need to visit it 5 times in order to get education, and move on to the next stage of the game. "
+tutorial_image = ExtResource("5_xloom")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_7gx6f"]
+script = ExtResource("2_02s5a")
+tutorial_text = "You still need to visit the School on Voting Days. 
+When Voting is available, \"VOTE!\" appears above the school. "
+tutorial_image = ExtResource("6_yhhq2")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[resource]
+script = ExtResource("1_yhhq2")
+tutorial_title = "You are an adult now!"
+tutorial_entries = Array[ExtResource("2_02s5a")]([SubResource("Resource_4p6lx"), SubResource("Resource_anbbe"), SubResource("Resource_sovy8"), SubResource("Resource_tdprx"), SubResource("Resource_7gx6f")])
+metadata/_custom_type_script = "uid://dk1ebxanvp5im"

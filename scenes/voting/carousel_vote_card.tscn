@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm5uyjipos108"]
+
+[ext_resource type="Script" uid="uid://dcbqalvledgew" path="res://scripts/voting/vote_card.gd" id="1_teypd"]
+[ext_resource type="Texture2D" uid="uid://bcd6c0ay06fat" path="res://icon.svg" id="2_fo5e6"]
+[ext_resource type="Texture2D" uid="uid://c5rgpxnkfhs45" path="res://assets/sprites/T_Swipe.png" id="3_fo5e6"]
+[ext_resource type="FontFile" uid="uid://c6jxpm6ufrllc" path="res://assets/fonts/OpenSans-Bold.ttf" id="3_pgl1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgl1o"]
+bg_color = Color(0, 0, 0.537255, 1)
+
+[node name="VoteCard" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_pgl1o")
+script = ExtResource("1_teypd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0.265, 0)
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = ExtResource("2_fo5e6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pgl1o")
+theme_override_font_sizes/font_size = 36
+text = "VOTE OPTION"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Vote choice desciption goes here.
+Use BBCode to [b]format[/b] text.[/center]
+
+[color=green]+1 Positive Effect[/color]
+[color=red]-1 Negative Effect[/color]"
+scroll_active = false
+
+[node name="VoteButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Vote!"
+
+[node name="TSwipe" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(357, 13.59)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_fo5e6")

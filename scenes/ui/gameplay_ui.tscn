@@ -1,0 +1,315 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7dknhftv136v"]
+
+[ext_resource type="Script" uid="uid://dnb1augi5kumi" path="res://scripts/ui/gameplay_ui.gd" id="1_pygfh"]
+[ext_resource type="Texture2D" uid="uid://cwd07l0nvr7g" path="res://assets/sprites/genericItem_color_158.png" id="2_3ny6e"]
+[ext_resource type="Texture2D" uid="uid://7gwc7xcky6mv" path="res://assets/sprites/TitleCard.png" id="2_8duql"]
+[ext_resource type="PackedScene" uid="uid://oq7rscnijpvy" path="res://scenes/ui/enter_building_popup.tscn" id="2_xarm8"]
+[ext_resource type="Texture2D" uid="uid://b3xttrvt2ry7v" path="res://assets/sprites/genericItem_color_102.png" id="3_63da3"]
+[ext_resource type="FontFile" uid="uid://dgj60cec7ul23" path="res://assets/fonts/OpenSans-Medium.ttf" id="3_mh8oh"]
+[ext_resource type="Texture2D" uid="uid://ci22m813sg7gt" path="res://assets/sprites/genericItem_color_124.png" id="4_sgack"]
+[ext_resource type="PackedScene" uid="uid://c5v43yjyk6hgl" path="res://scenes/ui/tutorial_popup.tscn" id="5_63da3"]
+[ext_resource type="PackedScene" uid="uid://ybl7hj748o1b" path="res://scenes/ui/game_over_popup.tscn" id="5_sgack"]
+[ext_resource type="PackedScene" uid="uid://dsyu44atmdpbq" path="res://scenes/voting/voting_carousel.tscn" id="6_3ny6e"]
+
+[node name="GameplayUI" type="Control" node_paths=PackedStringArray("voting_panel", "_game_over_popup", "tutorial_popup", "_enter_building_popup")]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pygfh")
+voting_panel = NodePath("InGame/VotingCarousel")
+_game_over_popup = NodePath("InGame/GameOverPopup")
+tutorial_popup = NodePath("InGame/TutorialPopup")
+_enter_building_popup = NodePath("InGame/EnterBuildingPopup")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+texture = ExtResource("2_8duql")
+expand_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 600
+
+[node name="Label" type="Label" parent="MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+text = "Start Game"
+
+[node name="InGame" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="StatsDisplayContainer" type="HBoxContainer" parent="InGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_right = -2.0
+offset_bottom = -1152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="InGame/StatsDisplayContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="InGame/StatsDisplayContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_3ny6e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "MONEY:"
+
+[node name="MoneyCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="InGame/StatsDisplayContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_63da3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "HEALTH:"
+
+[node name="HealthCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="MaxHealthCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "/100"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="InGame/StatsDisplayContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_sgack")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnergyLabel" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "ENERGY:"
+
+[node name="EnergyCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="MaxEnergyCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "/100"
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="InGame/StatsDisplayContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="InGame/StatsDisplayContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DayLabel" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "Day"
+
+[node name="DayCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mh8oh")
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="EducationLevelContainer" type="HBoxContainer" parent="InGame/StatsDisplayContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="EducationLevelLabel" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer2/EducationLevelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Education Level:"
+
+[node name="EducationLevelCounter" type="Label" parent="InGame/StatsDisplayContainer/HBoxContainer2/EducationLevelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="VotingCarousel" parent="InGame" instance=ExtResource("6_3ny6e")]
+visible = false
+layout_mode = 1
+
+[node name="GameOverPopup" parent="InGame" instance=ExtResource("5_sgack")]
+visible = false
+layout_mode = 1
+
+[node name="TutorialPopup" parent="InGame" instance=ExtResource("5_63da3")]
+visible = false
+layout_mode = 1
+
+[node name="EnterBuildingPopup" parent="InGame" instance=ExtResource("2_xarm8")]
+visible = false
+layout_mode = 1
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "X"
+
+[node name="ToggleDebugButton" type="Button" parent="."]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+text = "~"
+
+[node name="DEBUG" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MenuButton" type="Button" parent="DEBUG"]
+layout_mode = 2
+text = "QUIT TO MAIN MENU"
+
+[node name="EndDay" type="Button" parent="DEBUG"]
+layout_mode = 2
+text = "FORCE END DAY"
+
+[node name="GridContainer" type="GridContainer" parent="DEBUG"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="LoseMoney" type="Button" parent="DEBUG/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "LOSE: NO MONEY"
+
+[node name="WinDay" type="Button" parent="DEBUG/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "WIN: FINAL DAY"
+
+[node name="LoseHealth" type="Button" parent="DEBUG/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "LOSE: NO HEALTH"
+
+[node name="WinHouse" type="Button" parent="DEBUG/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "WIN: BUY HOUSE"
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ToggleDebugButton" to="." method="_on_toggle_debug_button_pressed"]
+[connection signal="pressed" from="DEBUG/MenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="DEBUG/EndDay" to="." method="_on_end_day_pressed"]
+[connection signal="pressed" from="DEBUG/GridContainer/LoseMoney" to="." method="_on_lose_money_pressed"]
+[connection signal="pressed" from="DEBUG/GridContainer/WinDay" to="." method="_on_win_day_pressed"]
+[connection signal="pressed" from="DEBUG/GridContainer/LoseHealth" to="." method="_on_lose_health_pressed"]
+[connection signal="pressed" from="DEBUG/GridContainer/WinHouse" to="." method="_on_win_house_pressed"]

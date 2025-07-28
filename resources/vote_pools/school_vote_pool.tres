@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="VotePool" load_steps=25 format=3 uid="uid://s0mw3mrr0y6b"]
+
+[ext_resource type="Script" uid="uid://diih6olji31sk" path="res://scripts/voting/vote_data.gd" id="1_li2jy"]
+[ext_resource type="Texture2D" uid="uid://dsg8f07f3ch40" path="res://assets/sprites/AV_earthwoman.png" id="2_t26i0"]
+[ext_resource type="Script" uid="uid://dqrrkn0oo8e56" path="res://scripts/vote_effects/vote_effect.gd" id="2_v8ad3"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="3_mwuit"]
+[ext_resource type="Script" uid="uid://gwq12730pyai" path="res://scripts/vote_effects/add_tilemap_layer.gd" id="4_li2jy"]
+[ext_resource type="Script" uid="uid://bm0n6o67rhllg" path="res://scripts/vote_effects/building_stat_effect.gd" id="4_t26i0"]
+[ext_resource type="PackedScene" uid="uid://bbfm1i4nki6sq" path="res://scenes/tilemap_layers/school_trees.tscn" id="5_mwuit"]
+[ext_resource type="PackedScene" uid="uid://m2765yv1sibo" path="res://scenes/tilemap_layers/univeristy_trees.tscn" id="6_t26i0"]
+[ext_resource type="Texture2D" uid="uid://dsfxms4ddwtnl" path="res://assets/sprites/AV_Coach.png" id="7_cbe2v"]
+[ext_resource type="Script" uid="uid://b321egxfo2dwy" path="res://scripts/vote_effects/remove_bandits_effect.gd" id="7_y57w6"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="8_cbe2v"]
+[ext_resource type="Texture2D" uid="uid://sgpsjkr7cu3w" path="res://assets/sprites/AV_policeman.png" id="10_1vrsd"]
+[ext_resource type="Texture2D" uid="uid://d1ydk3fs4y85s" path="res://assets/sprites/AV_teacher.png" id="12_i1ir3"]
+
+[sub_resource type="Resource" id="Resource_t26i0"]
+script = ExtResource("4_li2jy")
+tilemap_layer_per_map = Array[PackedScene]([ExtResource("5_mwuit"), ExtResource("6_t26i0")])
+metadata/_custom_type_script = "uid://gwq12730pyai"
+
+[sub_resource type="Resource" id="Resource_i1ir3"]
+script = ExtResource("1_li2jy")
+title = "Earth Day"
+party_id = 0
+portrait = ExtResource("2_t26i0")
+background_color = Color(0.503363, 0.599911, 0.0654613, 1)
+description = "A new tree-lined street is going to be built in the neighborhood."
+vote_effects = Array[ExtResource("2_v8ad3")]([SubResource("Resource_t26i0")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_l2748"]
+script = ExtResource("3_mwuit")
+education_level = 0
+money = 0
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 5
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_mp2lu"]
+script = ExtResource("4_t26i0")
+new_stats = SubResource("Resource_l2748")
+building_group = &"orlik"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_d3ov4"]
+script = ExtResource("1_li2jy")
+title = "Sport Budget"
+party_id = 1
+portrait = ExtResource("7_cbe2v")
+background_color = Color(0.940828, 0.353834, 0.347982, 1)
+description = "Training in the field costs less energy"
+vote_effects = Array[ExtResource("2_v8ad3")]([SubResource("Resource_mp2lu")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_07geh"]
+script = ExtResource("7_y57w6")
+bandits_to_remove = 1
+metadata/_custom_type_script = "uid://b321egxfo2dwy"
+
+[sub_resource type="Resource" id="Resource_gvjuq"]
+script = ExtResource("1_li2jy")
+title = "Police Cooperation"
+party_id = 0
+portrait = ExtResource("10_1vrsd")
+background_color = Color(0.145286, 0.417854, 0.689858, 1)
+description = "One bandit dissapears form the map."
+vote_effects = Array[ExtResource("2_v8ad3")]([SubResource("Resource_07geh")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_v8ad3"]
+script = ExtResource("3_mwuit")
+education_level = 0
+money = -5
+health = 0
+energy = 30
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_mwuit"]
+resource_local_to_scene = true
+script = ExtResource("4_t26i0")
+new_stats = SubResource("Resource_v8ad3")
+building_group = &"shop"
+operation_type = 0
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_li2jy"]
+script = ExtResource("1_li2jy")
+title = "Student discount"
+party_id = 1
+portrait = ExtResource("12_i1ir3")
+background_color = Color(0.204602, 0.643958, 0.304927, 1)
+description = "Student discount available in the store. Shopping costs less
+Money -10 -> Money -5"
+vote_effects = Array[ExtResource("2_v8ad3")]([SubResource("Resource_mwuit")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_y57w6"]
+script = ExtResource("1_li2jy")
+title = "New Coach"
+party_id = 1
+portrait = ExtResource("7_cbe2v")
+background_color = Color(0.876767, 0.436523, 0.20844, 1)
+description = "Training on field gives more Max Energy."
+vote_effects = Array[ExtResource("2_v8ad3")]([SubResource("Resource_mp2lu")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[resource]
+script = ExtResource("8_cbe2v")
+options = Array[ExtResource("1_li2jy")]([SubResource("Resource_i1ir3"), SubResource("Resource_d3ov4"), SubResource("Resource_gvjuq"), SubResource("Resource_gvjuq"), SubResource("Resource_li2jy"), SubResource("Resource_y57w6")])
+choices_count = 2

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://cgpry5v4hjbow"]
+
+[ext_resource type="TileSet" uid="uid://bbf143aiadq8y" path="res://resources/tilesets/urban_tileset_256x.tres" id="1_y47u0"]
+
+[node name="SchoolBikeRoad" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAAHAAUAAAAQAAAAAAAHAAYAAAANAAEAAAAHAAcAAAANAAEAAAAHAAgAAAAQAAEAAAAIAAQAAAAQAAIAAAAIAAUAAAARAAEAAAAIAAgAAAARAAAAAAAIAAkAAAANAAEAAAAIAAoAAAARAAEAAAAHAAoAAAARAAMAAAA=")
+tile_set = ExtResource("1_y47u0")

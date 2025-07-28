@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="VotePool" load_steps=13 format=3 uid="uid://cwmejuj0s0a70"]
+
+[ext_resource type="Script" uid="uid://diih6olji31sk" path="res://scripts/voting/vote_data.gd" id="1_moug2"]
+[ext_resource type="Texture2D" uid="uid://bcd6c0ay06fat" path="res://icon.svg" id="2_d3ry0"]
+[ext_resource type="Script" uid="uid://dqrrkn0oo8e56" path="res://scripts/vote_effects/vote_effect.gd" id="2_dnvf2"]
+[ext_resource type="Script" uid="uid://cg6scjuygiesq" path="res://scripts/voting/vote_pool.gd" id="2_eyww7"]
+[ext_resource type="Script" uid="uid://c70jfuj812cbm" path="res://scripts/resources/stat_component.gd" id="3_p1ju0"]
+[ext_resource type="Script" uid="uid://bm0n6o67rhllg" path="res://scripts/vote_effects/building_stat_effect.gd" id="4_d3ry0"]
+
+[sub_resource type="Resource" id="Resource_d06ab"]
+script = ExtResource("3_p1ju0")
+education_level = 0
+money = 0
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_c0ewj"]
+script = ExtResource("4_d3ry0")
+new_stats = SubResource("Resource_d06ab")
+building_group = &"placeholder"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_p1ju0"]
+script = ExtResource("1_moug2")
+title = "Wsparcie budownictwa mieszkaniowego"
+party_id = 0
+portrait = ExtResource("2_d3ry0")
+background_color = Color(0.254902, 0.411765, 0.882353, 1)
+description = "Wybudowane przez państwo mieszkania będą tańsze. 
+(efekt aplikowany w następnym etapie rozgrywki)"
+vote_effects = Array[ExtResource("2_dnvf2")]([SubResource("Resource_c0ewj")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[sub_resource type="Resource" id="Resource_ivfr2"]
+script = ExtResource("3_p1ju0")
+education_level = 0
+money = 0
+health = 0
+energy = 0
+bonus_health = 0
+bonus_energy = 0
+metadata/_custom_type_script = "uid://c70jfuj812cbm"
+
+[sub_resource type="Resource" id="Resource_05w4k"]
+script = ExtResource("4_d3ry0")
+new_stats = SubResource("Resource_ivfr2")
+building_group = &"placeholder"
+operation_type = 1
+metadata/_custom_type_script = "uid://bm0n6o67rhllg"
+
+[sub_resource type="Resource" id="Resource_d3ry0"]
+script = ExtResource("1_moug2")
+title = "Niższe podatki dla przedsiębiorców"
+party_id = 1
+portrait = ExtResource("2_d3ry0")
+background_color = Color(0.254902, 0.411765, 0.882353, 1)
+description = "Założenie własnego biznesu będzie łatwiejsze.
+(efekt aplikowany w następnym etapie)"
+vote_effects = Array[ExtResource("2_dnvf2")]([SubResource("Resource_05w4k")])
+metadata/_custom_type_script = "uid://diih6olji31sk"
+
+[resource]
+script = ExtResource("2_eyww7")
+options = Array[ExtResource("1_moug2")]([SubResource("Resource_p1ju0"), SubResource("Resource_d3ry0")])
+choices_count = 2

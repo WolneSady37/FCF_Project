@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=4 uid="uid://m2765yv1sibo"]
+
+[ext_resource type="TileSet" uid="uid://bbf143aiadq8y" path="res://resources/tilesets/urban_tileset_256x.tres" id="1_wivri"]
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAADAAoAAAAFAAAAAAAEAAoAAAAHAAEAAAAEAAkAAAAGAAAAAAAEAAgAAAAGAAAAAAAEAAcAAAAGAAEAAAAEAAYAAAAJAAIAAAA=")
+tile_set = ExtResource("1_wivri")

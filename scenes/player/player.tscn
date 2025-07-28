@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cocy0areo8hpq"]
+
+[ext_resource type="Texture2D" uid="uid://d1ul0odwholkc" path="res://assets/sprites/PlayerAvatar.png" id="2_dovo2"]
+[ext_resource type="AudioStream" uid="uid://lo7v1nao7kv2" path="res://assets/audio/sfx/SFX_PlayerMoveSound.ogg" id="2_lvxji"]
+[ext_resource type="Script" uid="uid://61tv27p8vqmx" path="res://scenes/player/player.gd" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://pg4owgennlqc" path="res://assets/audio/sfx/SFX_Bandit.ogg" id="3_p47bc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(64, 64)
+
+[node name="Player" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("2_qhqgy")
+move_sound = ExtResource("2_lvxji")
+bandit_collision_sound = ExtResource("3_p47bc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_dovo2")
+
+[node name="PopupTimer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true

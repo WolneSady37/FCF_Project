@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="TutorialData" load_steps=18 format=3 uid="uid://chnxnam26r6sn"]
+
+[ext_resource type="Script" uid="uid://dk1ebxanvp5im" path="res://scripts/resources/tutorial_data.gd" id="1_msnch"]
+[ext_resource type="Script" uid="uid://cm04f1h80r0ws" path="res://scripts/resources/tutorial_entry.gd" id="2_q3t3h"]
+[ext_resource type="Texture2D" uid="uid://d1ul0odwholkc" path="res://assets/sprites/PlayerAvatar.png" id="3_4p6lx"]
+[ext_resource type="Texture2D" uid="uid://diaudbt2qb3i3" path="res://assets/sprites/CityBallot.png" id="3_hlo3v"]
+[ext_resource type="Texture2D" uid="uid://4agc11tx7s62" path="res://assets/sprites/BanditAvatar.png" id="4_sd4u7"]
+[ext_resource type="Texture2D" uid="uid://ci22m813sg7gt" path="res://assets/sprites/genericItem_color_124.png" id="5_hlo3v"]
+[ext_resource type="Texture2D" uid="uid://cwd07l0nvr7g" path="res://assets/sprites/genericItem_color_158.png" id="5_k3ctj"]
+[ext_resource type="Texture2D" uid="uid://b3xttrvt2ry7v" path="res://assets/sprites/genericItem_color_102.png" id="7_anbbe"]
+[ext_resource type="Texture2D" uid="uid://pufoimwrmkv6" path="res://assets/sprites/T_Icon_School.png" id="9_anbbe"]
+
+[sub_resource type="Resource" id="Resource_4p6lx"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "Welcome to City Ballot!
+
+Here is a short tutorial that will show you around the game. "
+tutorial_image = ExtResource("3_hlo3v")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_utbu2"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "This is your player character. 
+You start the game as a school student.
+
+You can move the character by swiping across the screen in the direction you want to go. You can also double-tap to skip a turn without moving.
+"
+tutorial_image = ExtResource("3_4p6lx")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_hlo3v"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "This is Energy, which is used when walking around the map and using buildings. 
+When your Energy drops to 0, the Day ends, and your character returns to the starting tile."
+tutorial_image = ExtResource("5_hlo3v")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_anbbe"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "This is your Money, which you can spend in the Shop. 
+Every day you receive an allowance of 5 Money.
+
+Try to save up - your Money will multiply at a later stage of the game. "
+tutorial_image = ExtResource("5_k3ctj")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_sovy8"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "This is your Health. 
+Watch it closely - if it drops to 0, you lose the game!"
+tutorial_image = ExtResource("7_anbbe")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_sbikv"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "These are Bandits. Bandits move every second time you move. Their ghost shows where they will go on their next turn.
+
+If you step onto a tile occupied by a Bandit, you will lose Health – try to avoid them!"
+tutorial_image = ExtResource("4_sd4u7")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_pkoi2"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "You’ll find various buildings on the map – if you want to see what they do, tap on them to display their description. You can tap outside the window to close it."
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[sub_resource type="Resource" id="Resource_tdprx"]
+script = ExtResource("2_q3t3h")
+tutorial_text = "This is the main building - School. Your goal for the day is to reach it and take part in the vote. Once you’ve voted, the day ends – even if you still have Energy left!"
+tutorial_image = ExtResource("9_anbbe")
+metadata/_custom_type_script = "uid://cm04f1h80r0ws"
+
+[resource]
+script = ExtResource("1_msnch")
+tutorial_title = "Welcome to City Ballot!"
+tutorial_entries = Array[ExtResource("2_q3t3h")]([SubResource("Resource_4p6lx"), SubResource("Resource_utbu2"), SubResource("Resource_hlo3v"), SubResource("Resource_anbbe"), SubResource("Resource_sovy8"), SubResource("Resource_sbikv"), SubResource("Resource_pkoi2"), SubResource("Resource_tdprx")])
+metadata/_custom_type_script = "uid://dk1ebxanvp5im"
